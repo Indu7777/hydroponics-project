@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Hydroponics Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- LOGO & TITLE -->
+  <header>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+    <h1>Smart Hydroponics Prediction</h1>
+  </header>
+
+  <!-- TRANSPARENT CONTENT BOX -->
+  <div class="content-box">
+    
+    <!-- LEFT SIDE: FORM -->
+    <div class="form-container">
+      <form action="/predict" method="POST">
+        
+       <div class="form-group">
+  <label for="plant">Select Plant:</label>
+  <select id="plant" name="plant" onchange="updatePlantImage()">
+    <option value="tomato">Tomato</option>
+    <option value="lettuce">Lettuce</option>
+    <option value="spinach">Spinach</option>
+    <option value="basil">Basil</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Temperature (°C): <span id="tempValue">25</span></label>
+  <input type="range" name="temperature" id="temperature" min="10" max="40" step="0.1" value="25" oninput="updateValue('tempValue', this.value)">
+</div>
+
+
+        <div class="form-group">
+          <label>pH: <span id="phValue">6.2</span></label>
+          <input type="range" name="ph" id="ph" min="4" max="9" step="0.1" value="6.2" oninput="updateValue('phValue', this.value)">
+        </div>
+
+        <div class="form-group">
+          <label>EC: <span id="ecValue">1.8</span></label>
+          <input type="range" name="ec" id="ec" min="0.5" max="4" step="0.1" value="1.8" oninput="updateValue('ecValue', this.value)">
+        </div>
+
+        <div class="form-group">
+          <label>Humidity (%): <span id="humidityValue">65</span></label>
+          <input type="range" name="humidity" id="humidity" min="30" max="100" step="1" value="65" oninput="updateValue('humidityValue', this.value)">
+        </div>
+
+        <button type="submit" class="predict-btn">Predict Optimal Values</button>
+      </form>
+    </div>
+
+    <!-- RIGHT SIDE: PLANT IMAGE -->
+    <div class="plant-display">
+      <img id="plantImage" src="{{ url_for('static', filename='images/tomato.jpg') }}" alt="Plant" class="fade-image">
+    </div>
+
+  </div>
+
+  <script>
+    function updateValue(id, val) {
+      document.getElementById(id).textContent = val;
+    }
+
+    function updatePlantImage() {
+      const plant = document.getElementById("plant").value.toLowerCase();
+      const img = document.getElementById("plantImage");
+
+      img.classList.remove('fade-in');
+      img.classList.add('fade-out');
+
+      setTimeout(() => {
+        img.src = "{{ url_for('static', filename='images/') }}" + plant + ".jpg";
+        img.classList.remove('fade-out');
+        img.classList.add('fade-in');
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>

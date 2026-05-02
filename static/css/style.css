@@ -1,0 +1,167 @@
+/* BODY & BACKGROUND */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: url("../images/hydroponics_bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* HEADER (LOGO + TITLE) */
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0 20px 0;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+/* TRANSPARENT CONTENT BOX */
+.content-box {
+  display: flex;
+  width: 85%;
+  max-width: 1000px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* LEFT SIDE: FORM */
+.form-container {
+  flex: 3; /* 60% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  gap: 35px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type=range], select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.predict-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: none;
+  background-color: #5fd38d;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.predict-btn:hover {
+  background-color: #4cb877;
+}
+
+/* RIGHT SIDE: PLANT IMAGE */
+.plant-display {
+  flex: 2; /* 40% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.2);
+}
+
+.plant-display img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.plant-display img:hover {
+  transform: scale(1.05);
+}
+
+/* FADE ANIMATION */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+/* RESULT PAGE (TRANSPARENT BOX) */
+.result-box {
+  width: 80%;
+  max-width: 800px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 25px;
+  padding: 30px;
+  margin: 30px 0 30px -25px; /* top 30px, right 0, bottom 30px, left 50px */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+
+.result-box h2 {
+  text-align: center;           /* keep it centered */
+  width: 100%;                  /* span the whole box */
+  margin: 0 auto 25px auto;     /* slightly more space below */
+  font-size: 2rem;              /* slightly bigger without changing other elements */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* subtle shadow for better visibility */
+}
+
+
+.result-box ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.result-box ul li::before {
+  content: "• ";
+  color: #5fd38d;
+}
+
+.back-link, .download-btn {
+  background-color: #5fd38d;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  margin: 10px;
+}
+
+.back-link:hover, .download-btn:hover {
+  background-color: #4cb877;
+}
