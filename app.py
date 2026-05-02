@@ -128,5 +128,5 @@ doc.build(content)
 return send_file(filepath, as_attachment=True)
 ```
 
-if **name** == '**main**':
+if app = Flask(__name__):
 app.run(host='0.0.0.0', port=5000)
